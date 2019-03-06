@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {Howl, } from 'howler';
+import './play-button-4/css/style.css';
 
 class App extends Component {
+  state = {
+  scream: 0
+  }
+  play =()=>{
+    console.log('Play Click');
+    this.sound.play();
+    this.setState({ 
+      scream: this.state.scream += 1})
+    
+  }
+
+  sound = new Howl({
+    src: '0477.mp3'
+  });
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <button className="play-btn" href="#" onClick={this.play} />
+        {this.state.scream}
       </div>
     );
   }
