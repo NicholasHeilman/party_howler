@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Howl, } from 'howler';
-import './play-button-4/css/style.css';
+import './play-button/css/style.css';
 
 class App extends Component {
   state = {
