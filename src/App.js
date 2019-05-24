@@ -3,20 +3,24 @@ import './App.css';
 import {Howl, } from 'howler';
 import './play-button/css/style.css';
 
+
 class App extends Component {
   state = {
-      scream: 0
+      scream: 0,
+      eq: 0
   }
 
   play =()=>{
     console.log('Play Click');
     this.gong.play();
-    this.yes.play();
-    this.state ={
-        scream: + 1
+      this.setState({ 
+      scream: this.state.scream += 1,
+      eq: this.state.eq +=1
+    })
+    console.log(this.state.eq);  
+    if (this.state.eq > 4){
+      this.yes.play();
    }
-    // this.setState({ 
-    //   scream: this.state.scream += 1})
   }
 
   pause=()=>{
