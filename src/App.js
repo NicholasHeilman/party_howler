@@ -5,22 +5,35 @@ import './play-button/css/style.css';
 
 class App extends Component {
   state = {
-  scream: 0
+      scream: 0
   }
 
   play =()=>{
     console.log('Play Click');
-    this.sound.play();
-    this.setState({ 
-      scream: this.state.scream += 1})
+    this.gong.play();
+    this.yes.play();
+    this.state ={
+        scream: + 1
+   }
+    // this.setState({ 
+    //   scream: this.state.scream += 1})
   }
 
   // sound = new Howl({
   //   src: ['gong.mp3','0477.mp3', ]
   // });
+  gong = new Howl({
+    src: ['gong.mp3'],
+    autoplay: false,
+    loop: false,
+    volume: 1,
+    onend: function() {
+      console.log('Gong Finished!');
+    }
+  })
 
-  sound = new Howl({
-    src: ['Yes.mp3','gong.mp3'],
+  yes = new Howl({
+    src: ['Yes.mp3'],
     autoplay: false,
     loop: false,
     volume: 0.5,
