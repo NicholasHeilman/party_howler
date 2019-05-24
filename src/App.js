@@ -19,6 +19,11 @@ class App extends Component {
     //   scream: this.state.scream += 1})
   }
 
+  pause=()=>{
+    console.log('Pause Click');
+    this.yes.stop();
+  }
+
   // sound = new Howl({
   //   src: ['gong.mp3','0477.mp3', ]
   // });
@@ -59,6 +64,9 @@ class App extends Component {
         <p>Would you Click Me? <br />
             I'd Click Me. </p>
         {this.state.scream}
+        <footer>
+          <button className="pause-btn" onClick={this.pause}>||</button>
+        </footer>
       </div>
     );
   }
