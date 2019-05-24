@@ -7,22 +7,44 @@ class App extends Component {
   state = {
   scream: 0
   }
+
   play =()=>{
     console.log('Play Click');
     this.sound.play();
     this.setState({ 
       scream: this.state.scream += 1})
-    
   }
 
+  // sound = new Howl({
+  //   src: ['gong.mp3','0477.mp3', ]
+  // });
+
   sound = new Howl({
-    src: '0477.mp3'
+    src: ['Yes.mp3','gong.mp3'],
+    autoplay: false,
+    loop: false,
+    volume: 0.5,
+    onend: function() {
+      console.log('Finished!');
+      // volume  += 0.5;
+    }
   });
+
+  //  Play returns a unique Sound ID that can be passed
+  // into any method on Howl to control that specific sound.
+  // id1 = Howl.play();
+  // id2 = Howl.play();
+  
+  // Fade out the first sound and speed up the second.
+  // id1.fade(1, 0, 1000, id1);
+  // id2.rate(1.5, id2);
 
   render() {
     return (
       <div className="App">
         <button className="play-btn" href="#" onClick={this.play} />
+        <p>Would you Click Me? <br />
+            I'd Click Me. </p>
         {this.state.scream}
       </div>
     );
