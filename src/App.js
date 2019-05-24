@@ -6,26 +6,8 @@ import './play-button/css/style.css';
 
 class App extends Component {
   state = {
-      scream: 0,
+      gong: 0,
       eq: 0
-  }
-
-  play =()=>{
-    console.log('Play Click');
-    this.gong.play();
-      this.setState({ 
-      scream: this.state.scream += 1,
-      eq: this.state.eq +=1
-    })
-    console.log(this.state.eq);  
-    if (this.state.eq > 4){
-      this.yes.play();
-   }
-  }
-
-  pause=()=>{
-    console.log('Pause Click');
-    this.yes.stop();
   }
 
   // sound = new Howl({
@@ -52,6 +34,29 @@ class App extends Component {
     }
   });
 
+  play =()=>{
+    console.log('Play Click');
+    this.gong.play();
+      this.setState({ 
+      gong: this.state.gong += 1,
+      eq: this.state.eq +=1
+    })
+    console.log(this.state.eq);  
+    if (this.state.eq > 4){
+      if(this.yes.playing != true ){
+      this.yes.play();
+      this.yes.volume(1);
+      } else {
+        console.log('Yes Is Already Playing');
+      }
+   }
+  }
+
+  pause=()=>{
+    console.log('Pause Click');
+    this.yes.stop();
+  }
+
   //  Play returns a unique Sound ID that can be passed
   // into any method on Howl to control that specific sound.
   // id1 = Howl.play();
@@ -67,7 +72,7 @@ class App extends Component {
         <button className="play-btn" href="#" onClick={this.play} />
         <p>Would you Click Me? <br />
             I'd Click Me. </p>
-        {this.state.scream}
+        {this.state.gong}
         <footer>
           <button className="pause-btn" onClick={this.pause}>||</button>
         </footer>
