@@ -2,6 +2,7 @@
   "name": "scream_howler_spike",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "http://NicholasHeilman.github.io/myapp",
   "dependencies": {
     "howler": "^2.1.1",
     "react": "^16.8.4",
